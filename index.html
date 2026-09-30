@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ร้านข้าวซอยไทยดั้งเดิม - เมนูอาหารสไตล์ล้านนา</title>
+    <title>ร้านเส้นกรอบ - ข้าวซอย & เมนูอาหารสไตล์ล้านนา</title>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -13,18 +13,19 @@
             margin: 0;
             padding: 0;
             font-family: 'Prompt', 'Sarabun', sans-serif;
+            scroll-behavior: smooth;
         }
 
         :root {
             --bg-color: #f7f6f2;
-            --header-bg: #1e3a29;
+            --header-bg: #ffffff;
             --card-bg: #ffffff;
-            --primary-green: #22422b;
+            --primary-green: #1e3a29;
             --accent-gold: #c59b27;
             --text-dark: #222e25;
             --text-muted: #667068;
-            --box-bg: #f5f7f5;
-            --box-border: #d2ded5;
+            --box-bg: #f2f5f3;
+            --box-border: #c8d6cb;
         }
 
         body {
@@ -35,7 +36,7 @@
 
         /* Header Navigation */
         header {
-            background-color: #ffffff;
+            background-color: var(--header-bg);
             border-bottom: 1px solid #e2e8e3;
             padding: 16px 50px;
             display: flex;
@@ -54,20 +55,21 @@
         }
 
         .logo-icon {
-            width: 38px;
-            height: 38px;
+            width: 40px;
+            height: 40px;
             background-color: var(--primary-green);
-            color: #ffffff;
+            color: var(--accent-gold);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 20px;
+            border: 2px solid var(--accent-gold);
         }
 
         .brand-name {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 600;
             color: var(--primary-green);
         }
@@ -83,27 +85,50 @@
             color: #555;
             font-size: 15px;
             transition: color 0.2s;
+            font-weight: 500;
         }
 
         nav a:hover, nav a.active {
             color: var(--primary-green);
             font-weight: 600;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 4px;
         }
 
-        /* Container & Grid Layout */
         .container {
             max-width: 1100px;
             margin: 35px auto;
             padding: 0 20px;
         }
 
+        .section-title {
+            text-align: center;
+            color: var(--primary-green);
+            font-size: 28px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-gold);
+        }
+
+        /* Menu Grid */
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 28px;
         }
 
-        /* Food Card Structure */
+        /* Card Structure */
         .card {
             background-color: var(--card-bg);
             border-radius: 16px;
@@ -119,7 +144,10 @@
             width: 100%;
             height: 280px;
             overflow: hidden;
-            background-color: #eee;
+            background-color: #e9ece9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .card-image-wrapper img {
@@ -139,6 +167,29 @@
             font-size: 12px;
             font-weight: 500;
             box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            z-index: 2;
+        }
+
+        /* Custom Upload Button on Card */
+        .upload-label {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(30, 58, 41, 0.85);
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+            transition: all 0.2s;
+            z-index: 2;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .upload-label:hover {
+            background: var(--primary-green);
+            border-color: var(--accent-gold);
         }
 
         .card-body {
@@ -175,7 +226,7 @@
             line-height: 1.6;
         }
 
-        /* Ingredients Box Style */
+        /* Ingredients Box */
         .ingredients-box {
             background-color: var(--box-bg);
             border: 1px dashed var(--box-border);
@@ -200,8 +251,53 @@
             line-height: 1.5;
         }
 
+        /* Info Sections (About & Contact) */
+        .info-section {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 35px;
+            margin-top: 50px;
+            border: 1px solid #e5ebe6;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+        }
+
+        .about-text {
+            line-height: 1.8;
+            color: #444;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 15px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .contact-item {
+            background-color: var(--box-bg);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--box-border);
+        }
+
+        .contact-item h4 {
+            color: var(--primary-green);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .contact-item p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
         @media (max-width: 768px) {
-            .menu-grid {
+            .menu-grid, .contact-grid {
                 grid-template-columns: 1fr;
             }
             header {
@@ -214,194 +310,246 @@
 </head>
 <body>
 
+    <!-- Navigation Header -->
     <header>
         <div class="logo-container">
-            <div class="logo-icon">ข</div>
-            <div class="brand-name">ร้านข้าวซอยไทยดั้งเดิม</div>
+            <div class="logo-icon">ส</div>
+            <div class="brand-name">ร้านเส้นกรอบ (Sen Krob)</div>
         </div>
         <nav>
             <ul>
-                <li><a href="#">หน้าแรก</a></li>
-                <li><a href="#" class="active">เมนูอาหาร</a></li>
-                <li><a href="#">เกี่ยวกับเรา</a></li>
-                <li><a href="#">ติดต่อ</a></li>
+                <li><a href="#menu" class="active">เมนูอาหาร</a></li>
+                <li><a href="#about">เกี่ยวกับเรา</a></li>
+                <li><a href="#contact">ติดต่อเรา</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="container">
-        <div class="menu-grid">
+        
+        <!-- Menu Section -->
+        <section id="menu">
+            <h2 class="section-title">รายการเมนูอาหาร</h2>
+            <div class="menu-grid">
 
-            <!-- 1. ข้าวซอยไทยดั้งเดิม -->
-            <div class="card">
-                <div class="card-image-wrapper">
-                    <img src="825312132_2034313837260294_5922725675068690465_n_3.jpg" alt="ข้าวซอยไทยดั้งเดิม">
-                    <span class="badge">Signature</span>
+                <!-- 1. ข้าวซอย -->
+                <div class="card">
+                    <div class="card-image-wrapper">
+                        <img id="img-1" src="khao-soi.jpg" onerror="this.src='https://via.placeholder.com/600x400/1e3a29/ffffff?text=เลือกรูปข้าวซอย';" alt="ข้าวซอยไทยดั้งเดิม">
+                        <span class="badge">Signature</span>
+                        <label class="upload-label">📷 เลือกรูปถ่ายจริง<input type="file" accept="image/*" style="display:none" onchange="previewImage(event, 'img-1')"></label>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <h3 class="food-title">ข้าวซอยไทยดั้งเดิม (ไก่/เนื้อ/หมู)</h3>
+                            <span class="food-price">95.-</span>
+                        </div>
+                        <p class="food-description">ข้าวซอยสูตรเหนือเข้มข้น หอมกลิ่นพริกแกงเคี่ยวด้วยกะทิสด เสิร์ฟพร้อมเส้นกรอบบดเคี้ยวเพลิน</p>
+                        <div class="ingredients-box">
+                            <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
+                            <p class="ingredients-list">เส้นข้าวซอย, น่องไก่/เนื้อตุ๋น/หมูเคี่ยว, น้ำแกงข้าวซอยกะทิสด, เส้นกรอบ, หอมแดง, ผักกาดดอง, มะนาว</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div class="card-header">
-                        <h2 class="food-title">ข้าวซอยไทยดั้งเดิม (ไก่/เนื้อ/หมู)</h2>
-                        <span class="food-price">95.-</span>
+
+                <!-- 2. ข้าวไข่นุ่มต้มยำกุ้ง -->
+                <div class="card">
+                    <div class="card-image-wrapper">
+                        <img id="img-2" src="tom-yum-egg.jpg" onerror="this.src='https://via.placeholder.com/600x400/1e3a29/ffffff?text=เลือกรูปข้าวไข่นุ่ม';" alt="ข้าวไข่นุ่มราดซอตต้มยำกุ้ง">
+                        <span class="badge">ยอดนิยม</span>
+                        <label class="upload-label">📷 เลือกรูปถ่ายจริง<input type="file" accept="image/*" style="display:none" onchange="previewImage(event, 'img-2')"></label>
                     </div>
-                    <p class="food-description">ข้าวซอยสูตรเหนือเข้มข้น หอมกลิ่นพริกแกงเคี่ยวด้วยกะทิสด เสิร์ฟพร้อมเส้นกรอบบดเคี้ยวเพลิน</p>
-                    <div class="ingredients-box">
-                        <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
-                        <p class="ingredients-list">เส้นข้าวซอย, น่องไก่/เนื้อตุ๋น/หมูเคี่ยว, น้ำแกงข้าวซอยกะทิสด, เส้นกรอบ, หอมแดง, ผักกาดดอง, มะนาว</p>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <h3 class="food-title">ข้าวไข่นุ่มราดซอตต้มยำกุ้ง</h3>
+                            <span class="food-price">180.-</span>
+                        </div>
+                        <p class="food-description">ไข่นุ่มละมุนลิ้น ราดซอตต้มยำรสจัดจ้านพร้อมกุ้งสดตัวโต หอมกลิ่นเครื่องต้มยำแท้</p>
+                        <div class="ingredients-box">
+                            <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
+                            <p class="ingredients-list">ข้าวสวยหอมมะลิ, ไข่ไก่สด, กุ้งสด, ซอตต้มยำสูตรเข้มข้น, ตะไคร้, ใบกะเพรา, พริกชี้ฟ้า</p>
+                        </div>
                     </div>
+                </div>
+
+                <!-- 3. กุ้งสาดดด -->
+                <div class="card">
+                    <div class="card-image-wrapper">
+                        <img id="img-3" src="kung-sad.jpg" onerror="this.src='https://via.placeholder.com/600x400/1e3a29/ffffff?text=เลือกรูปกุ้งสาด';" alt="กุ้งสาดดด">
+                        <span class="badge">แนะนำ</span>
+                        <label class="upload-label">📷 เลือกรูปถ่ายจริง<input type="file" accept="image/*" style="display:none" onchange="previewImage(event, 'img-3')"></label>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <h3 class="food-title">กุ้งสาดดด (S / XL)</h3>
+                            <span class="food-price">399.- / 599.-</span>
+                        </div>
+                        <p class="food-description">ซีฟู้ดสาดซอสสูตรเด็ด คลุกเคล้าความหอมนัว กลมกล่อม อัดแน่นด้วยกุ้งและหมึกทะเล</p>
+                        <div class="ingredients-box">
+                            <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
+                            <p class="ingredients-list">กุ้งสด, หอยแมลงภู่นิวซีแลนด์, ปลาหมึก, ข้าวโพดหวาน, ซอสพริกผัดกระเทียมบด, เนยสด</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. ขาหมูเยอรมัน -->
+                <div class="card">
+                    <div class="card-image-wrapper">
+                        <img id="img-4" src="pork-knuckle.jpg" onerror="this.src='https://via.placeholder.com/600x400/1e3a29/ffffff?text=เลือกรูปขาหมูเยอรมัน';" alt="ขาหมูเยอรมัน / คุโรบูตะ">
+                        <label class="upload-label">📷 เลือกรูปถ่ายจริง<input type="file" accept="image/*" style="display:none" onchange="previewImage(event, 'img-4')"></label>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <h3 class="food-title">ขาหมูเยอรมัน / คุโรบูตะ</h3>
+                            <span class="food-price">399.- / 550.-</span>
+                        </div>
+                        <p class="food-description">ขาหมูทอดกรอบนอกนุ่มใน เสิร์ฟพร้อมน้ำจิ้มซีฟู้ดสุดแสบทรวงและผักดองสูตรทางร้าน</p>
+                        <div class="ingredients-box">
+                            <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
+                            <p class="ingredients-list">ขาหมูคัดพิเศษ, เครื่องเทศหมักสูตรเยอรมัน, น้ำจิ้มแจ่วรสเด็ด, น้ำจิ้มซีฟู้ดมะนาวสด</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. มาม่าหม้อไฟ -->
+                <div class="card">
+                    <div class="card-image-wrapper">
+                        <img id="img-5" src="mama-hotpot.jpg" onerror="this.src='https://via.placeholder.com/600x400/1e3a29/ffffff?text=เลือกรูปมาม่าหม้อไฟ';" alt="มาม่าหม้อไฟต้มยำทะเล">
+                        <label class="upload-label">📷 เลือกรูปถ่ายจริง<input type="file" accept="image/*" style="display:none" onchange="previewImage(event, 'img-5')"></label>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <h3 class="food-title">มาม่าหม้อไฟต้มยำทะเล</h3>
+                            <span class="food-price">300.-</span>
+                        </div>
+                        <p class="food-description">หม้อไฟจัดเต็ม ซุปต้มยำน้ำข้นแซ่บถึงใจ พร้อมกุ้ง ปลาหมึก หอย และไข่ต้มยางมะตูม</p>
+                        <div class="ingredients-box">
+                            <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
+                            <p class="ingredients-list">บะหมี่สำเร็จรูป, กุ้งสด, ปลาหมึก, หอยแมลงภู่, ไข่ไก่สด, นมสด, เครื่องต้มยำผักสด</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. คาโบนาร่า -->
+                <div class="card">
+                    <div class="card-image-wrapper">
+                        <img id="img-6" src="carbonara.jpg" onerror="this.src='https://via.placeholder.com/600x400/1e3a29/ffffff?text=เลือกรูปคาโบนาร่า';" alt="สปาเก็ตตี้คาโบนาร่า">
+                        <label class="upload-label">📷 เลือกรูปถ่ายจริง<input type="file" accept="image/*" style="display:none" onchange="previewImage(event, 'img-6')"></label>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <h3 class="food-title">สปาเก็ตตี้คาโบนาร่า</h3>
+                            <span class="food-price">130.-</span>
+                        </div>
+                        <p class="food-description">เส้นสปาเก็ตตี้เหนียวนุ่ม คลุกครีมชีสหอมมัน โรยเบคอนกรอบและแฮมเน้นๆ</p>
+                        <div class="ingredients-box">
+                            <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
+                            <p class="ingredients-list">เส้นสปาเก็ตตี้, วิปปิ้งครีม, พาเมซานชีส, เบคอนอบกรอบ, แฮมหมู, พริกไทยดำ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. กะเพรา -->
+                <div class="card">
+                    <div class="card-image-wrapper">
+                        <img id="img-7" src="kaprao.jpg" onerror="this.src='https://via.placeholder.com/600x400/1e3a29/ffffff?text=เลือกรูปกะเพรา';" alt="ข้าวราดกะเพรา">
+                        <label class="upload-label">📷 เลือกรูปถ่ายจริง<input type="file" accept="image/*" style="display:none" onchange="previewImage(event, 'img-7')"></label>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <h3 class="food-title">ข้าวราดกะเพรา (หมูกรอบ/กุ้ง)</h3>
+                            <span class="food-price">90.-</span>
+                        </div>
+                        <p class="food-description">กะเพราผัดแห้งหอมกลิ่นกระทะ พริกสดชูรสชาติ เสิร์ฟคู่กับข้าวสวยร้อนๆ</p>
+                        <div class="ingredients-box">
+                            <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
+                            <p class="ingredients-list">หมูกรอบ/กุ้งสด, ใบกะเพราแท้, พริกขี้หนูสวน, กระเทียมไทย, ซอสกะเพราสูตรพิเศษ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. ยำถั่วพู -->
+                <div class="card">
+                    <div class="card-image-wrapper">
+                        <img id="img-8" src="yum-wing-bean.jpg" onerror="this.src='https://via.placeholder.com/600x400/1e3a29/ffffff?text=เลือกรูปยำถั่วพู';" alt="ยำถั่วพูโบราณ">
+                        <label class="upload-label">📷 เลือกรูปถ่ายจริง<input type="file" accept="image/*" style="display:none" onchange="previewImage(event, 'img-8')"></label>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <h3 class="food-title">ยำถั่วพูโบราณ</h3>
+                            <span class="food-price">150.-</span>
+                        </div>
+                        <p class="food-description">ถั่วพูซอยกรอบ คลุกน้ำยำพริกเผากะทิสด โรยหอมเจียวและไข่ต้มยางมะตูม</p>
+                        <div class="ingredients-box">
+                            <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
+                            <p class="ingredients-list">ถั่วพูสด, หมูสับ, กุ้งสด, น้ำพริกเผา, กะทิสด, เม็ดมะม่วงหิมพานต์, ไข่ต้ม</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. ปังเย็น -->
+                <div class="card">
+                    <div class="card-image-wrapper">
+                        <img id="img-9" src="pang-yen.jpg" onerror="this.src='https://via.placeholder.com/600x400/1e3a29/ffffff?text=เลือกรูปปังเย็น';" alt="ปังเย็นชาไทย / นมสด">
+                        <label class="upload-label">📷 เลือกรูปถ่ายจริง<input type="file" accept="image/*" style="display:none" onchange="previewImage(event, 'img-9')"></label>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <h3 class="food-title">ปังเย็นชาไทย / นมสด (S/L)</h3>
+                            <span class="food-price">189.- / 229.-</span>
+                        </div>
+                        <p class="food-description">น้ำแข็งไสรสชาไทยเข้มข้น หอมหวานมัน ท็อปปิ้งด้วยขนมปังปิ้งนุ่มๆ และนมข้น</p>
+                        <div class="ingredients-box">
+                            <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
+                            <p class="ingredients-list">ชาไทยสกัดสด, นมข้นหวาน, ขนมปังปิ้งเนยสด, ท็อปปิ้งเลือกได้ (โอริโอ้/ฝอยทอง/ไข่มุก)</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="info-section">
+            <h2 class="section-title">เกี่ยวกับเรา</h2>
+            <p class="about-text">
+                <strong>ร้านเส้นกรอบ (Sen Krob)</strong> กำเนิดจากความตั้งใจที่ต้องการสืบสานรสชาติข้าวซอยดั้งเดิมสไตล์ล้านนา ผสมผสานกับความกรอบอร่อยอันเป็นเอกลักษณ์ เราพิถีพิถันในการคัดสรรวัตถุดิบสดใหม่ เคี่ยวพริกแกงและกะทิสดจนเข้มข้น หอมกลิ่นเครื่องเทศไทย พร้อมเสิร์ฟคู่กับเมนูฟิวชั่นและของหวานหลากหลายรายการเพื่อสร้างมื้ออาหารสุดพิเศษสำหรับคุณ
+            </p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="info-section">
+            <h2 class="section-title">ติดต่อเรา</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4>📍 ที่ตั้งร้าน</h4>
+                    <p>ร้านเส้นกรอบ ย่านล้านนา<br>เปิดบริการทุกวัน 10:00 - 21:00 น.</p>
+                </div>
+                <div class="contact-item">
+                    <h4>📞 เบอร์โทรศัพท์</h4>
+                    <p>081-234-5678<br>053-987-654</p>
+                </div>
+                <div class="contact-item">
+                    <h4>💬 โซเชียลมีเดีย</h4>
+                    <p>Facebook: ร้านเส้นกรอบ Sen Krob<br>LINE Official: @senkrob</p>
                 </div>
             </div>
+        </section>
 
-            <!-- 2. ข้าวไข่นุ่มราดซอตต้มยำกุ้ง -->
-            <div class="card">
-                <div class="card-image-wrapper">
-                    <img src="825312132_2034313837260294_5922725675068690465_n_3.jpg" alt="ข้าวไข่นุ่มราดซอตต้มยำกุ้ง">
-                    <span class="badge">ยอดนิยม</span>
-                </div>
-                <div class="card-body">
-                    <div class="card-header">
-                        <h2 class="food-title">ข้าวไข่นุ่มราดซอตต้มยำกุ้ง</h2>
-                        <span class="food-price">180.-</span>
-                    </div>
-                    <p class="food-description">ไข่นุ่มละมุนลิ้น ราดซอตต้มยำรสจัดจ้านพร้อมกุ้งสดตัวโต หอมกลิ่นเครื่องต้มยำแท้</p>
-                    <div class="ingredients-box">
-                        <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
-                        <p class="ingredients-list">ข้าวสวยหอมมะลิ, ไข่ไก่สด, กุ้งสด, ซอตต้มยำสูตรเข้มข้น, ตะไคร้, ใบกะเพรา, พริกชี้ฟ้า</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. กุ้งสาดดด -->
-            <div class="card">
-                <div class="card-image-wrapper">
-                    <img src="828625405_3410050579189099_5420487836605552194_n_3.jpg" alt="กุ้งสาดดด">
-                    <span class="badge">แนะนำ</span>
-                </div>
-                <div class="card-body">
-                    <div class="card-header">
-                        <h2 class="food-title">กุ้งสาดดด (S / XL)</h2>
-                        <span class="food-price">399.- / 599.-</span>
-                    </div>
-                    <p class="food-description">ซีฟู้ดสาดซอสสูตรเด็ด คลุกเคล้าความหอมนัว กลมกล่อม อัดแน่นด้วยกุ้งและหมึกทะเล</p>
-                    <div class="ingredients-box">
-                        <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
-                        <p class="ingredients-list">กุ้งสด, หอยแมลงภู่นิวซีแลนด์, ปลาหมึก, ข้าวโพดหวาน, ซอสพริกผัดกระเทียมบด, เนยสด</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4. ขาหมูเยอรมัน / คุโรบูตะ -->
-            <div class="card">
-                <div class="card-image-wrapper">
-                    <img src="828625405_3410050579189099_5420487836605552194_n_3.jpg" alt="ขาหมูเยอรมัน / คุโรบูตะ">
-                </div>
-                <div class="card-body">
-                    <div class="card-header">
-                        <h2 class="food-title">ขาหมูเยอรมัน / คุโรบูตะ</h2>
-                        <span class="food-price">399.- / 550.-</span>
-                    </div>
-                    <p class="food-description">ขาหมูทอดกรอบนอกนุ่มใน เสิร์ฟพร้อมน้ำจิ้มซีฟู้ดสุดแสบทรวงและผักดองสูตรทางร้าน</p>
-                    <div class="ingredients-box">
-                        <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
-                        <p class="ingredients-list">ขาหมูคัดพิเศษ, เครื่องเทศหมักสูตรเยอรมัน, น้ำจิ้มแจ่วรสเด็ด, น้ำจิ้มซีฟู้ดมะนาวสด</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 5. มาม่าหม้อไฟต้มยำทะเล -->
-            <div class="card">
-                <div class="card-image-wrapper">
-                    <img src="825312103_983270858126540_9125908086365898561_n_3.jpg" alt="มาม่าหม้อไฟต้มยำทะเล">
-                </div>
-                <div class="card-body">
-                    <div class="card-header">
-                        <h2 class="food-title">มาม่าหม้อไฟต้มยำทะเล</h2>
-                        <span class="food-price">300.-</span>
-                    </div>
-                    <p class="food-description">หม้อไฟจัดเต็ม ซุปต้มยำน้ำข้นแซ่บถึงใจ พร้อมกุ้ง ปลาหมึก หอย และไข่ต้มยางมะตูม</p>
-                    <div class="ingredients-box">
-                        <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
-                        <p class="ingredients-list">บะหมี่สำเร็จรูป, กุ้งสด, ปลาหมึก, หอยแมลงภู่, ไข่ไก่สด, นมสด, เครื่องต้มยำผักสด</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 6. สปาเก็ตตี้คาโบนาร่า -->
-            <div class="card">
-                <div class="card-image-wrapper">
-                    <img src="825312103_983270858126540_9125908086365898561_n_3.jpg" alt="สปาเก็ตตี้คาโบนาร่า">
-                </div>
-                <div class="card-body">
-                    <div class="card-header">
-                        <h2 class="food-title">สปาเก็ตตี้คาโบนาร่า</h2>
-                        <span class="food-price">130.-</span>
-                    </div>
-                    <p class="food-description">เส้นสปาเก็ตตี้เหนียวนุ่ม คลุกครีมชีสหอมมัน โรยเบคอนกรอบและแฮมเน้นๆ</p>
-                    <div class="ingredients-box">
-                        <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
-                        <p class="ingredients-list">เส้นสปาเก็ตตี้, วิปปิ้งครีม, พาเมซานชีส, เบคอนอบกรอบ, แฮมหมู, พริกไทยดำ</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 7. ข้าวราดกะเพรา -->
-            <div class="card">
-                <div class="card-image-wrapper">
-                    <img src="825311981_1156751680011758_2088149162060019170_n_3.jpg" alt="ข้าวราดกะเพรา (หมูกรอบ/กุ้ง)">
-                </div>
-                <div class="card-body">
-                    <div class="card-header">
-                        <h2 class="food-title">ข้าวราดกะเพรา (หมูกรอบ/กุ้ง)</h2>
-                        <span class="food-price">90.-</span>
-                    </div>
-                    <p class="food-description">กะเพราผัดแห้งหอมกลิ่นกระทะ พริกสดชูรสชาติ เสิร์ฟคู่กับข้าวสวยร้อนๆ</p>
-                    <div class="ingredients-box">
-                        <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
-                        <p class="ingredients-list">หมูกรอบ/กุ้งสด, ใบกะเพราแท้, พริกขี้หนูสวน, กระเทียมไทย, ซอสกะเพราสูตรพิเศษ</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 8. ยำถั่วพูโบราณ -->
-            <div class="card">
-                <div class="card-image-wrapper">
-                    <img src="825311981_1156751680011758_2088149162060019170_n_3.jpg" alt="ยำถั่วพูโบราณ">
-                </div>
-                <div class="card-body">
-                    <div class="card-header">
-                        <h2 class="food-title">ยำถั่วพูโบราณ</h2>
-                        <span class="food-price">150.-</span>
-                    </div>
-                    <p class="food-description">ถั่วพูซอยกรอบ คลุกน้ำยำพริกเผากะทิสด โรยหอมเจียวและไข่ต้มยางมะตูม</p>
-                    <div class="ingredients-box">
-                        <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
-                        <p class="ingredients-list">ถั่วพูสด, หมูสับ, กุ้งสด, น้ำพริกเผา, กะทิสด, เม็ดมะม่วงหิมพานต์, ไข่ต้ม</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 9. ปังเย็นชาไทย / นมสด -->
-            <div class="card">
-                <div class="card-image-wrapper">
-                    <img src="825311981_2078250716384420_7657824203103966203_n_3.jpg" alt="ปังเย็นชาไทย / นมสด">
-                </div>
-                <div class="card-body">
-                    <div class="card-header">
-                        <h2 class="food-title">ปังเย็นชาไทย / นมสด (S/L)</h2>
-                        <span class="food-price">189.- / 229.-</span>
-                    </div>
-                    <p class="food-description">น้ำแข็งไสรสชาไทยเข้มข้น หอมหวานมัน ท็อปปิ้งด้วยขนมปังปิ้งนุ่มๆ และนมข้น</p>
-                    <div class="ingredients-box">
-                        <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
-                        <p class="ingredients-list">ชาไทยสกัดสด, นมข้นหวาน, ขนมปังปิ้งเนยสด, ท็อปปิ้งเลือกได้ (โอริโอ้/ฝอยทอง/ไข่มุก)</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
     </div>
 
-</body>
-</html>
+    <!-- Script Preview Image -->
+    <script>
+        function previewImage(event, targetId) {
+            const input = event.target;
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById(targetId).src = e.target.result;
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
 </script>
   </body>
 </html>
