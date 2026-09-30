@@ -3,731 +3,389 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ร้านข้าวซอยไทยดั้งเดิม - Lanna Style</title>
-  
-  <!-- Google Fonts: Prompt & Kanit -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --lanna-green-dark: #1b4332;
-      --lanna-green-mid: #2d6a4f;
-      --lanna-green-light: #52b788;
-      --wood-dark: #3d2314;
-      --wood-brown: #5c3a21;
-      --gold-lanna: #d4af37;
-      --bg-cream: #fdfbf7;
-      --card-bg: #f5efe6;
-      --text-dark: #2c221e;
-      --text-muted: #6b5e54;
-      --white: #ffffff;
-      --shadow: 0 8px 20px rgba(27, 67, 50, 0.12);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ร้านข้าวซอยไทยดั้งเดิม - เมนูอาหาร</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Sarabun', 'Prompt', sans-serif;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        body {
+            background-color: #f7f4f0;
+            color: #333;
+            padding-bottom: 50px;
+        }
 
-    body {
-      font-family: 'Prompt', 'Kanit', sans-serif;
-      background-color: var(--bg-cream);
-      color: var(--text-dark);
-      line-height: 1.6;
-      background-image: radial-gradient(#d4af3718 1px, transparent 1px);
-      background-size: 24px 24px;
-    }
+        /* Header Navigation */
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #eaeaea;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-    /* Header Navbar */
-    header {
-      background: linear-gradient(135deg, var(--wood-dark) 0%, var(--lanna-green-dark) 100%);
-      color: var(--white);
-      border-bottom: 4px solid var(--gold-lanna);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    .header-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+            background-color: #8c6b58;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: var(--white);
-    }
+        .brand-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #5c4033;
+        }
 
-    .logo-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--gold-lanna);
-      color: var(--wood-dark);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      font-weight: bold;
-      border: 2px solid var(--white);
-    }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
 
-    .logo-text h1 {
-      font-family: 'Kanit', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--gold-lanna);
-    }
+        nav a {
+            text-decoration: none;
+            color: #666;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
 
-    .logo-text p {
-      font-size: 0.8rem;
-      color: #e0d5c1;
-    }
+        nav a:hover, nav a.active {
+            color: #5c4033;
+            font-weight: bold;
+        }
 
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 1.2rem;
-    }
+        /* Container Layout */
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
 
-    nav a {
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
-    }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
 
-    nav a:hover, nav a.active {
-      color: var(--gold-lanna);
-      background: rgba(255, 255, 255, 0.08);
-    }
+        /* Food Card Design */
+        .card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
 
-    /* Hero Banner */
-    .hero {
-      background: linear-gradient(rgba(27, 67, 50, 0.88), rgba(61, 35, 20, 0.88)),
-                  url('https://media.komchadluek.net/uploads/images/contents/w1024/2022/08/dGp7Pk6GyfbC2y0ci4Nh.webp') center/cover no-repeat;
-      color: var(--white);
-      text-align: center;
-      padding: 4rem 1.5rem;
-    }
+        .card-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+        }
 
-    .hero-content {
-      max-width: 850px;
-      margin: 0 auto;
-    }
+        .card-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-    .hero-tag {
-      display: inline-block;
-      background-color: var(--gold-lanna);
-      color: var(--wood-dark);
-      padding: 4px 18px;
-      border-radius: 20px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-    }
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #d9822b;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
 
-    .hero h2 {
-      font-family: 'Kanit', sans-serif;
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-      color: #ffffff;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
+        .card-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
 
-    .hero p {
-      font-size: 1.1rem;
-      color: #f0e6d2;
-      margin-bottom: 2rem;
-      font-weight: 300;
-    }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
 
-    /* Stats Bar */
-    .stats-container {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(8px);
-      padding: 1.2rem;
-      border-radius: 12px;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      max-width: 700px;
-      margin: 0 auto;
-    }
+        .food-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #222;
+        }
 
-    .stat-item h3 {
-      font-size: 1.8rem;
-      color: var(--gold-lanna);
-      font-family: 'Kanit', sans-serif;
-    }
+        .food-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #d9822b;
+        }
 
-    .stat-item p {
-      font-size: 0.85rem;
-      margin-bottom: 0;
-      color: #e8e0d0;
-    }
+        .food-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
 
-    /* Main Container */
-    .main-container {
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 1.5rem;
-    }
+        /* Ingredients Box */
+        .ingredients-box {
+            background-color: #faf8f5;
+            border: 1px dashed #e2d9cd;
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-top: auto;
+        }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
+        .ingredients-title {
+            font-size: 12px;
+            color: #5c4033;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 5px;
+        }
 
-    .section-title h2 {
-      font-family: 'Kanit', sans-serif;
-      font-size: 2.2rem;
-      color: var(--lanna-green-dark);
-      position: relative;
-      display: inline-block;
-      padding-bottom: 10px;
-    }
+        .ingredients-list {
+            font-size: 13px;
+            color: #777;
+            line-height: 1.4;
+        }
 
-    .section-title h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
-      background-color: var(--gold-lanna);
-    }
-
-    /* Category Filter Buttons */
-    .filter-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .filter-btn {
-      background-color: var(--white);
-      color: var(--wood-brown);
-      border: 1.5px solid var(--wood-brown);
-      padding: 8px 18px;
-      border-radius: 25px;
-      font-family: 'Prompt', sans-serif;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .filter-btn:hover, .filter-btn.active {
-      background-color: var(--lanna-green-dark);
-      color: var(--gold-lanna);
-      border-color: var(--lanna-green-dark);
-      box-shadow: 0 4px 12px rgba(27, 67, 50, 0.25);
-    }
-
-    /* Menu Cards Grid */
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 2rem;
-    }
-
-    .menu-card {
-      background: var(--white);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      border: 1px solid #e8dec8;
-      transition: transform 0.3s, box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .menu-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 28px rgba(27, 67, 50, 0.2);
-    }
-
-    .menu-img-wrapper {
-      position: relative;
-      height: 220px;
-      overflow: hidden;
-      background-color: #f0e8d8;
-    }
-
-    .menu-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .menu-card:hover .menu-img {
-      transform: scale(1.08);
-    }
-
-    .badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      background-color: var(--gold-lanna);
-      color: var(--wood-dark);
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-
-    .menu-content {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-
-    .menu-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 0.8rem;
-      gap: 10px;
-    }
-
-    .menu-title {
-      font-family: 'Kanit', sans-serif;
-      font-size: 1.25rem;
-      color: var(--wood-dark);
-      font-weight: 600;
-    }
-
-    .menu-price {
-      font-family: 'Kanit', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--lanna-green-dark);
-      background-color: #e8f5e9;
-      padding: 2px 10px;
-      border-radius: 8px;
-      white-space: nowrap;
-    }
-
-    .menu-desc {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      margin-bottom: 1.2rem;
-      flex-grow: 1;
-    }
-
-    .ingredients-box {
-      background-color: var(--card-bg);
-      padding: 0.8rem 1rem;
-      border-radius: 10px;
-      border-left: 3px solid var(--gold-lanna);
-    }
-
-    .ingredients-title {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--wood-brown);
-      margin-bottom: 0.3rem;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .ingredients-list {
-      font-size: 0.82rem;
-      color: var(--text-dark);
-      line-height: 1.4;
-    }
-
-    /* Footer */
-    footer {
-      background-color: var(--wood-dark);
-      color: #d1c7b7;
-      padding: 3rem 1.5rem 1.5rem;
-      margin-top: 5rem;
-      border-top: 4px solid var(--gold-lanna);
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .footer-col h4 {
-      font-family: 'Kanit', sans-serif;
-      color: var(--gold-lanna);
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-    }
-
-    .footer-col p {
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .copyright {
-      text-align: center;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 0.85rem;
-      color: #999;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .header-container {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      .hero h2 {
-        font-size: 2rem;
-      }
-      .stats-container {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      .menu-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="header-container">
-      <a href="#" class="logo">
-        <div class="logo-icon">ข</div>
-        <div class="logo-text">
-          <h1>ร้านข้าวซอยไทยดั้งเดิม</h1>
-          <p>รสชาติเข้มข้นสไตล์ล้านนา</p>
+    <!-- Header Section -->
+    <header>
+        <div class="logo-container">
+            <div class="logo-icon">ข</div>
+            <div class="brand-name">ร้านข้าวซอยไทยดั้งเดิม</div>
         </div>
-      </a>
-      <nav>
-        <ul>
-          <li><a href="#" class="active">หน้าแรก</a></li>
-          <li><a href="#menu-section">เมนูอาหาร</a></li>
-          <li><a href="#about">เกี่ยวกับเรา</a></li>
-          <li><a href="#contact">ติดต่อ</a></li>
-        </ul>
-      </nav>
+        <nav>
+            <ul>
+                <li><a href="#">หน้าแรก</a></li>
+                <li><a href="#" class="active">เมนูอาหาร</a></li>
+                <li><a href="#">เกี่ยวกับเรา</a></li>
+                <li><a href="#">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <div class="menu-grid">
+
+            <!-- Item 1 -->
+            <div class="card">
+                <div class="card-image-wrapper">
+                    <img src="https://via.placeholder.com/600x400?text=Khao+Soi" alt="ข้าวซอยไทยดั้งเดิม">
+                    <span class="badge">Signature</span>
+                </div>
+                <div class="card-body">
+                    <div class="card-header">
+                        <h2 class="food-title">ข้าวซอยไทยดั้งเดิม (ไก่/เนื้อ/หมู)</h2>
+                        <span class="food-price">95.-</span>
+                    </div>
+                    <p class="food-description">ข้าวซอยสูตรเหนือเข้มข้น หอมกลิ่นพริกแกงเคี่ยวด้วยกะทิสด เสิร์ฟพร้อมเส้นกรอบบดเคี้ยวเพลิน</p>
+                    <div class="ingredients-box">
+                        <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
+                        <p class="ingredients-list">เส้นข้าวซอย, น่องไก่/เนื้อตุ๋น/หมูเคี่ยว, น้ำแกงข้าวซอยกะทิสด, เส้นกรอบ, หอมแดง, ผักกาดดอง, มะนาว</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="card">
+                <div class="card-image-wrapper">
+                    <img src="https://via.placeholder.com/600x400?text=Creamy+Egg+Tom+Yum" alt="ข้าวไข่นุ่มราดซอตต้มยำกุ้ง">
+                    <span class="badge">ยอดนิยม</span>
+                </div>
+                <div class="card-body">
+                    <div class="card-header">
+                        <h2 class="food-title">ข้าวไข่นุ่มราดซอตต้มยำกุ้ง</h2>
+                        <span class="food-price">180.-</span>
+                    </div>
+                    <p class="food-description">ไข่นุ่มละมุนลิ้น ราดซอตต้มยำรสจัดจ้านพร้อมกุ้งสดตัวโต หอมกลิ่นเครื่องต้มยำแท้</p>
+                    <div class="ingredients-box">
+                        <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
+                        <p class="ingredients-list">ข้าวสวยหอมมะลิ, ไข่ไก่สด, กุ้งสด, ซอตต้มยำสูตรเข้มข้น, ตะไคร้, ใบกะเพรา, พริกชี้ฟ้า</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="card">
+                <div class="card-image-wrapper">
+                    <img src="https://via.placeholder.com/600x400?text=Kung+Sad" alt="กุ้งสาดดด">
+                    <span class="badge">แนะนำ</span>
+                </div>
+                <div class="card-body">
+                    <div class="card-header">
+                        <h2 class="food-title">กุ้งสาดดด (S / XL)</h2>
+                        <span class="food-price">399.- / 599.-</span>
+                    </div>
+                    <p class="food-description">ซีฟู้ดสาดซอสสูตรเด็ด คลุกเคล้าความหอมนัว กลมกล่อม อัดแน่นด้วยกุ้งและหมึกทะเล</p>
+                    <div class="ingredients-box">
+                        <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
+                        <p class="ingredients-list">กุ้งสด, หอยแมลงภู่นิวซีแลนด์, ปลาหมึก, ข้าวโพดหวาน, ซอสพริกผัดกระเทียมบด, เนยสด</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="card">
+                <div class="card-image-wrapper">
+                    <img src="https://via.placeholder.com/600x400?text=German+Pork+Knuckle" alt="ขาหมูเยอรมัน / คุโรบูตะ">
+                </div>
+                <div class="card-body">
+                    <div class="card-header">
+                        <h2 class="food-title">ขาหมูเยอรมัน / คุโรบูตะ</h2>
+                        <span class="food-price">399.- / 550.-</span>
+                    </div>
+                    <p class="food-description">ขาหมูทอดกรอบนอกนุ่มใน เสิร์ฟพร้อมน้ำจิ้มซีฟู้ดสุดแสบทรวงและผักดองสูตรทางร้าน</p>
+                    <div class="ingredients-box">
+                        <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
+                        <p class="ingredients-list">ขาหมูคัดพิเศษ, เครื่องเทศหมักสูตรเยอรมัน, น้ำจิ้มแจ่วรสเด็ด, น้ำจิ้มซีฟู้ดมะนาวสด</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="card">
+                <div class="card-image-wrapper">
+                    <img src="https://via.placeholder.com/600x400?text=Mama+Tom+Yum" alt="มาม่าหม้อไฟต้มยำทะเล">
+                </div>
+                <div class="card-body">
+                    <div class="card-header">
+                        <h2 class="food-title">มาม่าหม้อไฟต้มยำทะเล</h2>
+                        <span class="food-price">300.-</span>
+                    </div>
+                    <p class="food-description">หม้อไฟจัดเต็ม ซุปต้มยำน้ำข้นแซ่บถึงใจ พร้อมกุ้ง ปลาหมึก หอย และไข่ต้มยางมะตูม</p>
+                    <div class="ingredients-box">
+                        <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
+                        <p class="ingredients-list">บะหมี่สำเร็จรูป, กุ้งสด, ปลาหมึก, หอยแมลงภู่, ไข่ไก่สด, นมสด, เครื่องต้มยำผักสด</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="card">
+                <div class="card-image-wrapper">
+                    <img src="https://via.placeholder.com/600x400?text=Carbonara" alt="สปาเก็ตตี้คาโบนาร่า">
+                </div>
+                <div class="card-body">
+                    <div class="card-header">
+                        <h2 class="food-title">สปาเก็ตตี้คาโบนาร่า</h2>
+                        <span class="food-price">130.-</span>
+                    </div>
+                    <p class="food-description">เส้นสปาเก็ตตี้เหนียวนุ่ม คลุกครีมชีสหอมมัน โรยเบคอนกรอบและแฮมเน้นๆ</p>
+                    <div class="ingredients-box">
+                        <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
+                        <p class="ingredients-list">เส้นสปาเก็ตตี้, วิปปิ้งครีม, พาเมซานชีส, เบคอนอบกรอบ, แฮมหมู, พริกไทยดำ</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="card">
+                <div class="card-image-wrapper">
+                    <img src="https://via.placeholder.com/600x400?text=Basil+Rice" alt="ข้าวราดกะเพรา">
+                </div>
+                <div class="card-body">
+                    <div class="card-header">
+                        <h2 class="food-title">ข้าวราดกะเพรา (หมูกรอบ/กุ้ง)</h2>
+                        <span class="food-price">90.-</span>
+                    </div>
+                    <p class="food-description">กะเพราผัดแห้งหอมกลิ่นกระทะ พริกสดชูรสชาติ เสิร์ฟคู่กับข้าวสวยร้อนๆ</p>
+                    <div class="ingredients-box">
+                        <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
+                        <p class="ingredients-list">หมูกรอบ/กุ้งสด, ใบกะเพราแท้, พริกขี้หนูสวน, กระเทียมไทย, ซอสกระเพราสูตรพิเศษ</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 8 -->
+            <div class="card">
+                <div class="card-image-wrapper">
+                    <img src="https://via.placeholder.com/600x400?text=Winged+Bean+Salad" alt="ยำถั่วพูโบราณ">
+                </div>
+                <div class="card-body">
+                    <div class="card-header">
+                        <h2 class="food-title">ยำถั่วพูโบราณ</h2>
+                        <span class="food-price">150.-</span>
+                    </div>
+                    <p class="food-description">ถั่วพูซอยกรอบ คลุกน้ำยำพริกเผากะทิสด โรยหอมเจียวและไข่ต้มยางมะตูม</p>
+                    <div class="ingredients-box">
+                        <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
+                        <p class="ingredients-list">ถั่วพูสด, หมูสับ, กุ้งสด, น้ำพริกเผา, กะทิสด, เม็ดมะม่วงหิมพานต์, ไข่ต้ม</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 9 -->
+            <div class="card">
+                <div class="card-image-wrapper">
+                    <img src="https://via.placeholder.com/600x400?text=Thai+Tea+Shaved+Ice" alt="ปังเย็นชาไทย / นมสด">
+                </div>
+                <div class="card-body">
+                    <div class="card-header">
+                        <h2 class="food-title">ปังเย็นชาไทย / นมสด (S/L)</h2>
+                        <span class="food-price">189.- / 229.-</span>
+                    </div>
+                    <p class="food-description">น้ำแข็งไสรสชาไทยเข้มข้น หอมหวานมัน ท็อปปิ้งด้วยขนมปังปิ้งนุ่มๆ และนมข้น</p>
+                    <div class="ingredients-box">
+                        <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
+                        <p class="ingredients-list">ชาไทยสกัดสด, นมข้นหวาน, ขนมปังปิ้งเนยสด, ท็อปปิ้งเลือกได้ (โอริโอ้/ฝอยทอง/ไข่มุก)</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <span class="hero-tag">สัมผัสเสน่ห์อาหารเหนือแท้</span>
-      <h2>ข้าวซอยไทยดั้งเดิม & อาหารรสเด็ด</h2>
-      <p>คัดสรรวัตถุดิบชั้นดี ปรุงด้วยความใส่ใจ รสชาติเข้มข้นกลมกล่อม ในบรรยากาศสบายๆ ตอบโจทย์ไลฟ์สไตล์นักศึกษาและคนทำงานรุ่นใหม่ (20-35 ปี)</p>
-      
-      <div class="stats-container">
-        <div class="stat-item">
-          <h3>100%</h3>
-          <p>วัตถุดิบสดใหม่ คัดสรรวันต่อวัน</p>
-        </div>
-        <div class="stat-item">
-          <h3>50+</h3>
-          <p>เมนูคาว-หวานหลากหลาย</p>
-        </div>
-        <div class="stat-item">
-          <h3>4.9 ★</h3>
-          <p>ความพึงพอใจจากลูกค้า</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Main Menu Section -->
-  <main class="main-container" id="menu-section">
-    <div class="section-title">
-      <h2>รายการอาหารแนะนำ & เมนูทั้งหมด</h2>
-    </div>
-
-    <!-- Category Filters -->
-    <div class="filter-buttons">
-      <button class="filter-btn active" onclick="filterCategory('all')">ทั้งหมด</button>
-      <button class="filter-btn" onclick="filterCategory('highlight')">⭐ เมนูไฮไลท์</button>
-      <button class="filter-btn" onclick="filterCategory('quick')">🍚 เมนูจานด่วน</button>
-      <button class="filter-btn" onclick="filterCategory('main')">🍲 จานหลัก/ต้มยำ</button>
-      <button class="filter-btn" onclick="filterCategory('spaghetti')">🥩 สเต๊ก & สปาเก็ตตี้</button>
-      <button class="filter-btn" onclick="filterCategory('appetizer')">🍟 ทานเล่น & ยำ</button>
-      <button class="filter-btn" onclick="filterCategory('dessert')">🍧 ขนมหวาน</button>
-    </div>
-
-    <!-- Menu Grid -->
-    <div class="menu-grid" id="menu-grid">
-      
-      <!-- 1. ข้าวซอยไทยดั้งเดิม -->
-      <div class="menu-card" data-category="highlight quick">
-        <div class="menu-img-wrapper">
-          <span class="badge">Signature</span>
-          <img class="menu-img" 
-               src="https://media.komchadluek.net/uploads/images/contents/w1024/2022/08/dGp7Pk6GyfbC2y0ci4Nh.webp" 
-               alt="ข้าวซอยไทยดั้งเดิม"
-               onerror="this.src='https://th.bing.com/th/id/R.8d40931749c90274a7501d0d0117b940?rik=WLTOdyv%2bf6fjEQ&pid=ImgRaw&r=0';">
-        </div>
-        <div class="menu-content">
-          <div class="menu-header">
-            <h3 class="menu-title">ข้าวซอยไทยดั้งเดิม (ไก่/เนื้อ/หมู)</h3>
-            <span class="menu-price">95.-</span>
-          </div>
-          <p class="menu-desc">ข้าวซอยสูตรเหนือเข้มข้น หอมกลิ่นพริกแกงเคี่ยวด้วยกะทิสด เสิร์ฟพร้อมเส้นกรอบบดเคี้ยวเพลิน</p>
-          <div class="ingredients-box">
-            <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
-            <div class="ingredients-list">เส้นข้าวซอย, น่องไก่/เนื้อตุ๋น/หมูเคี่ยว, น้ำแกงข้าวซอยกะทิสด, เส้นกรอบ, หอมแดง, ผักกาดดอง, มะนาว</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2. ข้าวไข่ข้นราดซอตต้มยำกุ้ง -->
-      <div class="menu-card" data-category="highlight main quick">
-        <div class="menu-img-wrapper">
-          <span class="badge">ยอดนิยม</span>
-          <img class="menu-img" 
-               src="image_fac38c.jpg" 
-               alt="ข้าวไข่ข้นราดซอตต้มยำกุ้ง"
-               onerror="this.src='https://img.wongnai.com/p/1920x0/2020/05/21/e4f2010c2c194bb89689f074d207f90f.jpg';">
-        </div>
-        <div class="menu-content">
-          <div class="menu-header">
-            <h3 class="menu-title">ข้าวไข่ข้นราดซอตต้มยำกุ้ง</h3>
-            <span class="menu-price">180.-</span>
-          </div>
-          <p class="menu-desc">ไข่ข้นนุ่มละมุนลิ้น ราดซอตต้มยำรสจัดจ้านพร้อมกุ้งสดตัวโต หอมกลิ่นเครื่องต้มยำแท้</p>
-          <div class="ingredients-box">
-            <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
-            <div class="ingredients-list">ข้าวสวยหอมมะลิ, ไข่ไก่สด, กุ้งสด, ซอสต้มยำสูตรเข้มข้น, ตะไคร้, ใบกะเพรา, พริกชี้ฟ้า</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3. กุ้งสาดดด -->
-      <div class="menu-card" data-category="highlight main">
-        <div class="menu-img-wrapper">
-          <span class="badge">แนะนำ</span>
-          <img class="menu-img" 
-               src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?q=80&w=800&auto=format&fit=crop" 
-               alt="กุ้งสาดดด"
-               onerror="this.src='https://images.unsplash.com/photo-1559847844-5315695dadae?q=80&w=800&auto=format&fit=crop';">
-        </div>
-        <div class="menu-content">
-          <div class="menu-header">
-            <h3 class="menu-title">กุ้งสาดดด (S / XL)</h3>
-            <span class="menu-price">399.- / 599.-</span>
-          </div>
-          <p class="menu-desc">ซีฟู้ดสาดซอสสูตรเด็ด คลุกเคล้าความหอมนัว กลมกล่อม อัดแน่นด้วยกุ้งและหมึกทะเล</p>
-          <div class="ingredients-box">
-            <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
-            <div class="ingredients-list">กุ้งสด, หอยแมลงภู่นิวซีแลนด์, ปลาหมึก, ข้าวโพดหวาน, ซอสพริกผัดกระเทียมบด, เนยสด</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4. ขาหมูเยอรมัน / คุโรบูตะ -->
-      <div class="menu-card" data-category="main">
-        <div class="menu-img-wrapper">
-          <img class="menu-img" 
-               src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" 
-               alt="ขาหมูเยอรมัน"
-               onerror="this.src='https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?q=80&w=800&auto=format&fit=crop';">
-        </div>
-        <div class="menu-content">
-          <div class="menu-header">
-            <h3 class="menu-title">ขาหมูเยอรมัน / คุโรบูตะ</h3>
-            <span class="menu-price">399.- / 550.-</span>
-          </div>
-          <p class="menu-desc">ขาหมูทอดกรอบนอกนุ่มใน เสิร์ฟพร้อมน้ำจิ้มซีฟู้ดสุดแสบทรวงและผักดองสูตรทางร้าน</p>
-          <div class="ingredients-box">
-            <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
-            <div class="ingredients-list">ขาหมูคัดพิเศษ, เครื่องเทศหมักสูตรเยอรมัน, น้ำจิ้มแจ่วรสเด็ด, น้ำจิ้มซีฟู้ดมะนาวสด</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 5. มาม่าหม้อไฟต้มยำทะเล -->
-      <div class="menu-card" data-category="main">
-        <div class="menu-img-wrapper">
-          <img class="menu-img" 
-               src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?q=80&w=800&auto=format&fit=crop" 
-               alt="มาม่าหม้อไฟต้มยำทะเล"
-               onerror="this.src='https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop';">
-        </div>
-        <div class="menu-content">
-          <div class="menu-header">
-            <h3 class="menu-title">มาม่าหม้อไฟต้มยำทะเล</h3>
-            <span class="menu-price">300.-</span>
-          </div>
-          <p class="menu-desc">หม้อไฟจัดเต็ม ซุปต้มยำน้ำข้นแซ่บถึงใจ พร้อมกุ้ง ปลาหมึก หอย และไข่ต้มยางมะตูม</p>
-          <div class="ingredients-box">
-            <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
-            <div class="ingredients-list">บะหมี่กึ่งสำเร็จรูป, กุ้งสด, ปลาหมึก, หอยแมลงภู่, ไข่ไก่สด, นมสด, เครื่องต้มยำผักสด</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 6. สปาเก็ตตี้คาโบนาร่า -->
-      <div class="menu-card" data-category="spaghetti">
-        <div class="menu-img-wrapper">
-          <img class="menu-img" 
-               src="https://images.unsplash.com/photo-1612874742237-6526221588e3?q=80&w=800&auto=format&fit=crop" 
-               alt="สปาเก็ตตี้คาโบนาร่า"
-               onerror="this.src='https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=800&auto=format&fit=crop';">
-        </div>
-        <div class="menu-content">
-          <div class="menu-header">
-            <h3 class="menu-title">สปาเก็ตตี้คาโบนาร่า</h3>
-            <span class="menu-price">130.-</span>
-          </div>
-          <p class="menu-desc">เส้นสปาเก็ตตี้เหนียวนุ่ม คลุกครีมชีสหอมมัน โรยเบคอนกรอบและแฮมเน้นๆ</p>
-          <div class="ingredients-box">
-            <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
-            <div class="ingredients-list">เส้นสปาเก็ตตี้, วิปปิ้งครีม, พาเมซานชีส, เบคอนอบกรอบ, แฮมหมู, พริกไทยดำ</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 7. ข้าวราดกะเพรา (อัปเดตรูปภาพใหม่แล้ว) -->
-      <div class="menu-card" data-category="quick main">
-        <div class="menu-img-wrapper">
-          <img class="menu-img" 
-               src="image_fb221d.jpg" 
-               alt="ข้าวราดกะเพรา"
-               onerror="this.src='https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=800&auto=format&fit=crop';">
-        </div>
-        <div class="menu-content">
-          <div class="menu-header">
-            <h3 class="menu-title">ข้าวราดกะเพรา (หมูกรอบ/กุ้ง)</h3>
-            <span class="menu-price">90.-</span>
-          </div>
-          <p class="menu-desc">กะเพราผัดแห้งหอมกลิ่นกระทะ พริกสดชูรสชาติ เสิร์ฟคู่กับข้าวสวยร้อนๆ</p>
-          <div class="ingredients-box">
-            <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
-            <div class="ingredients-list">หมูกรอบ/กุ้งสด, ใบกะเพราแท้, พริกขี้หนูสวน, กระเทียมไทย, ซอสกะเพราสูตรพิเศษ</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 8. ยำถั่วพูโบราณ -->
-      <div class="menu-card" data-category="appetizer">
-        <div class="menu-img-wrapper">
-          <img class="menu-img" 
-               src="https://img.wongnai.com/p/1920x0/2020/01/27/b413f29759714f1391e9b82775eeae0d.jpg" 
-               alt="ยำถั่วพูโบราณ"
-               onerror="this.src='https://th.bing.com/th/id/R.2e9b8aa69875f0668769cc7f4716c922?rik=bnyiWXZyY152Xw&pid=ImgRaw&r=0';">
-        </div>
-        <div class="menu-content">
-          <div class="menu-header">
-            <h3 class="menu-title">ยำถั่วพูโบราณ</h3>
-            <span class="menu-price">150.-</span>
-          </div>
-          <p class="menu-desc">ถั่วพูซอยกรอบ คลุกน้ำยำพริกเผากะทิสด โรยหอมเจียวและไข่ต้มยางมะตูม</p>
-          <div class="ingredients-box">
-            <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
-            <div class="ingredients-list">ถั่วพูสด, หมูสับ, กุ้งสด, น้ำพริกเผา, กะทิสด, เม็ดมะม่วงหิมพานต์, ไข่ต้ม</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 9. ปังเย็นชาไทย / นมสด -->
-      <div class="menu-card" data-category="dessert">
-        <div class="menu-img-wrapper">
-          <img class="menu-img" 
-               src="image_fabc84.jpg" 
-               alt="ปังเย็นชาไทย"
-               onerror="this.src='https://img.wongnai.com/p/1920x0/2018/08/08/90d33e5c9a17409f9843641bd378037b.jpg';">
-        </div>
-        <div class="menu-content">
-          <div class="menu-header">
-            <h3 class="menu-title">ปังเย็นชาไทย / นมสด (S/L)</h3>
-            <span class="menu-price">189.- / 229.-</span>
-          </div>
-          <p class="menu-desc">น้ำแข็งไสรสชาไทยเข้มข้น หอมหวานมัน ท็อปปิ้งด้วยขนมปังปิ้งนุ่มๆ และนมข้น</p>
-          <div class="ingredients-box">
-            <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
-            <div class="ingredients-list">ชาไทยสกัดสด, นมข้นหวาน, ขนมปังปิ้งเนยสด, ท็อปปิ้งเลือกได้ (โอริโอ้/ฝอยทอง/ไข่มุก)</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </main>
-
-  <!-- Footer -->
-  <footer id="contact">
-    <div class="footer-container">
-      <div class="footer-col" id="about">
-        <h4>ร้านข้าวซอยไทยดั้งเดิม</h4>
-        <p>บริการอาหารล้านนาและอาหารไทยรสเด็ด บรรยากาศสบายๆ เหมาะสำหรับนักศึกษาและคนทำงานรุ่นใหม่</p>
-      </div>
-      <div class="footer-col">
-        <h4>เวลาทำการ</h4>
-        <p>เปิดให้บริการทุกวัน</p>
-        <p>เวลา: 10:00 น. - 21:00 น.</p>
-      </div>
-      <div class="footer-col">
-        <h4>ติดต่อเรา</h4>
-        <p>📍 เชียงใหม่ ประเทศไทย</p>
-        <p>📞 โทร: 081-234-5678</p>
-        <p>🌐 Facebook: ร้านข้าวซอยไทยดั้งเดิม</p>
-      </div>
-    </div>
-    <div class="copyright">
-      &copy; 2026 ร้านข้าวซอยไทยดั้งเดิม (Lanna Style). All Rights Reserved.
-    </div>
-  </footer>
-
-  <script>
-    // Filter Category Function
-    function filterCategory(category) {
-      const cards = document.querySelectorAll('.menu-card');
-      const buttons = document.querySelectorAll('.filter-btn');
-
-      // Update Active Button
-      buttons.forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-
-      // Show/Hide Cards
-      cards.forEach(card => {
-        if (category === 'all') {
-          card.style.display = 'flex';
-        } else {
-          const categories = card.getAttribute('data-category').split(' ');
-          if (categories.includes(category)) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
-        }
-      });
-    }
-  </script>
 </body>
 </html>
 </script>
