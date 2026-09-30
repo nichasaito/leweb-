@@ -5,32 +5,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ร้านข้าวซอยไทยดั้งเดิม - เมนูอาหาร</title>
+    <title>ร้านข้าวซอยไทยดั้งเดิม - เมนูอาหารสไตล์ล้านนา</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Sarabun', 'Prompt', sans-serif;
+            font-family: 'Prompt', 'Sarabun', sans-serif;
+        }
+
+        /* Lanna Green & Earthy Palette */
+        :root {
+            --bg-color: #f3f5f2;          /* เขียวเทาอ่อน นุ่มตา */
+            --header-bg: #1e3a29;        /* เขียวเข้มล้านนา/เขียวพัสดี */
+            --card-bg: #ffffff;
+            --primary-green: #2c5234;   /* เขียวใบตองแก่/เขียวป่า */
+            --accent-gold: #c59b27;      /* สีทองล้านนา */
+            --text-dark: #222e25;        /* เขียวเข้มเกือบดำสำหรับข้อความ */
+            --text-muted: #5e6d62;
+            --box-bg: #f2f6f3;           /* สีเขียวพาสเทลอ่อนสำหรับกล่องส่วนประกอบ */
+            --box-border: #c2d4c6;
         }
 
         body {
-            background-color: #f7f4f0;
-            color: #333;
-            padding-bottom: 50px;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            padding-bottom: 60px;
         }
 
         /* Header Navigation */
         header {
-            background-color: #ffffff;
-            border-bottom: 1px solid #eaeaea;
-            padding: 15px 50px;
+            background-color: var(--header-bg);
+            border-bottom: 3px solid var(--accent-gold);
+            padding: 16px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
         .logo-container {
@@ -40,71 +55,80 @@
         }
 
         .logo-icon {
-            width: 35px;
-            height: 35px;
-            background-color: #8c6b58;
-            color: white;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-gold);
+            color: #ffffff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 20px;
+            box-shadow: inset 0 0 0 2px rgba(255,255,255,0.3);
         }
 
         .brand-name {
-            font-size: 20px;
-            font-weight: bold;
-            color: #5c4033;
+            font-size: 22px;
+            font-weight: 600;
+            color: #ffffff;
+            letter-spacing: 0.5px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 30px;
         }
 
         nav a {
             text-decoration: none;
-            color: #666;
+            color: #d0ded4;
             font-size: 15px;
-            transition: color 0.2s;
+            transition: all 0.2s;
         }
 
         nav a:hover, nav a.active {
-            color: #5c4033;
-            font-weight: bold;
+            color: var(--accent-gold);
+            font-weight: 500;
         }
 
         /* Container Layout */
         .container {
             max-width: 1100px;
-            margin: 30px auto;
+            margin: 35px auto;
             padding: 0 20px;
         }
 
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
+            gap: 28px;
         }
 
         /* Food Card Design */
         .card {
-            background-color: #ffffff;
+            background-color: var(--card-bg);
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            box-shadow: 0 6px 18px rgba(30, 58, 41, 0.08);
+            border: 1px solid #e1e8e2;
             display: flex;
             flex-direction: column;
-            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 22px rgba(30, 58, 41, 0.12);
         }
 
         .card-image-wrapper {
             position: relative;
             width: 100%;
-            height: 260px;
+            height: 270px;
             overflow: hidden;
+            background-color: #e9ece9;
         }
 
         .card-image-wrapper img {
@@ -117,16 +141,17 @@
             position: absolute;
             top: 15px;
             right: 15px;
-            background-color: #d9822b;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
+            background-color: var(--accent-gold);
+            color: #ffffff;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 13px;
             font-weight: 500;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         }
 
         .card-body {
-            padding: 20px;
+            padding: 22px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -141,46 +166,47 @@
 
         .food-title {
             font-size: 20px;
-            font-weight: bold;
-            color: #222;
+            font-weight: 600;
+            color: var(--primary-green);
         }
 
         .food-price {
-            font-size: 18px;
-            font-weight: bold;
-            color: #d9822b;
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--accent-gold);
+            white-space: nowrap;
         }
 
         .food-description {
             font-size: 14px;
-            color: #666;
+            color: var(--text-muted);
             margin-bottom: 20px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        /* Ingredients Box */
+        /* Ingredients Box - Lanna Style */
         .ingredients-box {
-            background-color: #faf8f5;
-            border: 1px dashed #e2d9cd;
-            border-radius: 10px;
-            padding: 12px 15px;
+            background-color: var(--box-bg);
+            border: 1px dashed var(--box-border);
+            border-radius: 12px;
+            padding: 12px 16px;
             margin-top: auto;
         }
 
         .ingredients-title {
-            font-size: 12px;
-            color: #5c4033;
-            font-weight: bold;
+            font-size: 13px;
+            color: var(--primary-green);
+            font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 5px;
-            margin-bottom: 5px;
+            gap: 6px;
+            margin-bottom: 4px;
         }
 
         .ingredients-list {
             font-size: 13px;
-            color: #777;
-            line-height: 1.4;
+            color: var(--text-muted);
+            line-height: 1.5;
         }
 
         /* Responsive Design */
@@ -221,7 +247,7 @@
             <!-- Item 1 -->
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="https://via.placeholder.com/600x400?text=Khao+Soi" alt="ข้าวซอยไทยดั้งเดิม">
+                    <img src="825312132_2034313837260294_5922725675068690465_n.jpg" alt="ข้าวซอยไทยดั้งเดิม">
                     <span class="badge">Signature</span>
                 </div>
                 <div class="card-body">
@@ -240,7 +266,7 @@
             <!-- Item 2 -->
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="https://via.placeholder.com/600x400?text=Creamy+Egg+Tom+Yum" alt="ข้าวไข่นุ่มราดซอตต้มยำกุ้ง">
+                    <img src="825312132_2034313837260294_5922725675068690465_n.jpg" alt="ข้าวไข่นุ่มราดซอตต้มยำกุ้ง">
                     <span class="badge">ยอดนิยม</span>
                 </div>
                 <div class="card-body">
@@ -259,7 +285,7 @@
             <!-- Item 3 -->
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="https://via.placeholder.com/600x400?text=Kung+Sad" alt="กุ้งสาดดด">
+                    <img src="828625405_3410050579189099_5420487836605552194_n.jpg" alt="กุ้งสาดดด">
                     <span class="badge">แนะนำ</span>
                 </div>
                 <div class="card-body">
@@ -278,7 +304,7 @@
             <!-- Item 4 -->
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="https://via.placeholder.com/600x400?text=German+Pork+Knuckle" alt="ขาหมูเยอรมัน / คุโรบูตะ">
+                    <img src="828625405_3410050579189099_5420487836605552194_n.jpg" alt="ขาหมูเยอรมัน / คุโรบูตะ">
                 </div>
                 <div class="card-body">
                     <div class="card-header">
@@ -296,7 +322,7 @@
             <!-- Item 5 -->
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="https://via.placeholder.com/600x400?text=Mama+Tom+Yum" alt="มาม่าหม้อไฟต้มยำทะเล">
+                    <img src="825312103_983270858126540_9125908086365898561_n.jpg" alt="มาม่าหม้อไฟต้มยำทะเล">
                 </div>
                 <div class="card-body">
                     <div class="card-header">
@@ -314,7 +340,7 @@
             <!-- Item 6 -->
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="https://via.placeholder.com/600x400?text=Carbonara" alt="สปาเก็ตตี้คาโบนาร่า">
+                    <img src="825312103_983270858126540_9125908086365898561_n.jpg" alt="สปาเก็ตตี้คาโบนาร่า">
                 </div>
                 <div class="card-body">
                     <div class="card-header">
@@ -332,7 +358,7 @@
             <!-- Item 7 -->
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="https://via.placeholder.com/600x400?text=Basil+Rice" alt="ข้าวราดกะเพรา">
+                    <img src="825311981_1156751680011758_2088149162060019170_n.jpg" alt="ข้าวราดกะเพรา">
                 </div>
                 <div class="card-body">
                     <div class="card-header">
@@ -350,7 +376,7 @@
             <!-- Item 8 -->
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="https://via.placeholder.com/600x400?text=Winged+Bean+Salad" alt="ยำถั่วพูโบราณ">
+                    <img src="825311981_1156751680011758_2088149162060019170_n.jpg" alt="ยำถั่วพูโบราณ">
                 </div>
                 <div class="card-body">
                     <div class="card-header">
@@ -368,7 +394,7 @@
             <!-- Item 9 -->
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="https://via.placeholder.com/600x400?text=Thai+Tea+Shaved+Ice" alt="ปังเย็นชาไทย / นมสด">
+                    <img src="825311981_2078250716384420_7657824203103966203_n.jpg" alt="ปังเย็นชาไทย / นมสด">
                 </div>
                 <div class="card-body">
                     <div class="card-header">
@@ -385,6 +411,9 @@
 
         </div>
     </div>
+
+</body>
+</html>
 </script>
   </body>
 </html>
