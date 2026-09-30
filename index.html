@@ -15,17 +15,16 @@
             font-family: 'Prompt', 'Sarabun', sans-serif;
         }
 
-        /* Lanna Green & Earthy Palette */
         :root {
-            --bg-color: #f3f5f2;          /* เขียวเทาอ่อน นุ่มตา */
-            --header-bg: #1e3a29;        /* เขียวเข้มล้านนา/เขียวพัสดี */
+            --bg-color: #f7f6f2;
+            --header-bg: #1e3a29;
             --card-bg: #ffffff;
-            --primary-green: #2c5234;   /* เขียวใบตองแก่/เขียวป่า */
-            --accent-gold: #c59b27;      /* สีทองล้านนา */
-            --text-dark: #222e25;        /* เขียวเข้มเกือบดำสำหรับข้อความ */
-            --text-muted: #5e6d62;
-            --box-bg: #f2f6f3;           /* สีเขียวพาสเทลอ่อนสำหรับกล่องส่วนประกอบ */
-            --box-border: #c2d4c6;
+            --primary-green: #22422b;
+            --accent-gold: #c59b27;
+            --text-dark: #222e25;
+            --text-muted: #667068;
+            --box-bg: #f5f7f5;
+            --box-border: #d2ded5;
         }
 
         body {
@@ -36,8 +35,8 @@
 
         /* Header Navigation */
         header {
-            background-color: var(--header-bg);
-            border-bottom: 3px solid var(--accent-gold);
+            background-color: #ffffff;
+            border-bottom: 1px solid #e2e8e3;
             padding: 16px 50px;
             display: flex;
             justify-content: space-between;
@@ -45,7 +44,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
         }
 
         .logo-container {
@@ -55,45 +54,43 @@
         }
 
         .logo-icon {
-            width: 40px;
-            height: 40px;
-            background-color: var(--accent-gold);
+            width: 38px;
+            height: 38px;
+            background-color: var(--primary-green);
             color: #ffffff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 20px;
-            box-shadow: inset 0 0 0 2px rgba(255,255,255,0.3);
+            font-size: 18px;
         }
 
         .brand-name {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
-            color: #ffffff;
-            letter-spacing: 0.5px;
+            color: var(--primary-green);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 25px;
         }
 
         nav a {
             text-decoration: none;
-            color: #d0ded4;
+            color: #555;
             font-size: 15px;
-            transition: all 0.2s;
+            transition: color 0.2s;
         }
 
         nav a:hover, nav a.active {
-            color: var(--accent-gold);
-            font-weight: 500;
+            color: var(--primary-green);
+            font-weight: 600;
         }
 
-        /* Container Layout */
+        /* Container & Grid Layout */
         .container {
             max-width: 1100px;
             margin: 35px auto;
@@ -106,29 +103,23 @@
             gap: 28px;
         }
 
-        /* Food Card Design */
+        /* Food Card Structure */
         .card {
             background-color: var(--card-bg);
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 6px 18px rgba(30, 58, 41, 0.08);
-            border: 1px solid #e1e8e2;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+            border: 1px solid #e5ebe6;
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 22px rgba(30, 58, 41, 0.12);
         }
 
         .card-image-wrapper {
             position: relative;
             width: 100%;
-            height: 270px;
+            height: 280px;
             overflow: hidden;
-            background-color: #e9ece9;
+            background-color: #eee;
         }
 
         .card-image-wrapper img {
@@ -145,9 +136,9 @@
             color: #ffffff;
             padding: 4px 14px;
             border-radius: 20px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 500;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
         }
 
         .card-body {
@@ -161,17 +152,17 @@
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .food-title {
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 600;
             color: var(--primary-green);
         }
 
         .food-price {
-            font-size: 19px;
+            font-size: 18px;
             font-weight: 600;
             color: var(--accent-gold);
             white-space: nowrap;
@@ -184,7 +175,7 @@
             line-height: 1.6;
         }
 
-        /* Ingredients Box - Lanna Style */
+        /* Ingredients Box Style */
         .ingredients-box {
             background-color: var(--box-bg);
             border: 1px dashed var(--box-border);
@@ -209,7 +200,6 @@
             line-height: 1.5;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .menu-grid {
                 grid-template-columns: 1fr;
@@ -224,7 +214,6 @@
 </head>
 <body>
 
-    <!-- Header Section -->
     <header>
         <div class="logo-container">
             <div class="logo-icon">ข</div>
@@ -240,14 +229,13 @@
         </nav>
     </header>
 
-    <!-- Main Content Container -->
     <div class="container">
         <div class="menu-grid">
 
-            <!-- Item 1 -->
+            <!-- Item 1: ข้าวซอย -->
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="825312132_2034313837260294_5922725675068690465_n.jpg" alt="ข้าวซอยไทยดั้งเดิม">
+                    <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80" alt="ข้าวซอยไทยดั้งเดิม">
                     <span class="badge">Signature</span>
                 </div>
                 <div class="card-body">
@@ -263,10 +251,10 @@
                 </div>
             </div>
 
-            <!-- Item 2 -->
+            <!-- Item 2: ข้าวไข่นุ่มต้มยำกุ้ง -->
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="825312132_2034313837260294_5922725675068690465_n.jpg" alt="ข้าวไข่นุ่มราดซอตต้มยำกุ้ง">
+                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=800&q=80" alt="ข้าวไข่นุ่มราดซอตต้มยำกุ้ง">
                     <span class="badge">ยอดนิยม</span>
                 </div>
                 <div class="card-body">
@@ -282,10 +270,10 @@
                 </div>
             </div>
 
-            <!-- Item 3 -->
+            <!-- Item 3: กุ้งสาดดด -->
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="828625405_3410050579189099_5420487836605552194_n.jpg" alt="กุ้งสาดดด">
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=800&q=80" alt="กุ้งสาดดด">
                     <span class="badge">แนะนำ</span>
                 </div>
                 <div class="card-body">
@@ -301,10 +289,10 @@
                 </div>
             </div>
 
-            <!-- Item 4 -->
+            <!-- Item 4: ขาหมูเยอรมัน -->
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="828625405_3410050579189099_5420487836605552194_n.jpg" alt="ขาหมูเยอรมัน / คุโรบูตะ">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="ขาหมูเยอรมัน / คุโรบูตะ">
                 </div>
                 <div class="card-body">
                     <div class="card-header">
@@ -319,10 +307,10 @@
                 </div>
             </div>
 
-            <!-- Item 5 -->
+            <!-- Item 5: มาม่าหม้อไฟ -->
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="825312103_983270858126540_9125908086365898561_n.jpg" alt="มาม่าหม้อไฟต้มยำทะเล">
+                    <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80" alt="มาม่าหม้อไฟต้มยำทะเล">
                 </div>
                 <div class="card-body">
                     <div class="card-header">
@@ -337,10 +325,10 @@
                 </div>
             </div>
 
-            <!-- Item 6 -->
+            <!-- Item 6: คาโบนาร่า -->
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="825312103_983270858126540_9125908086365898561_n.jpg" alt="สปาเก็ตตี้คาโบนาร่า">
+                    <img src="https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&w=800&q=80" alt="สปาเก็ตตี้คาโบนาร่า">
                 </div>
                 <div class="card-body">
                     <div class="card-header">
@@ -355,10 +343,10 @@
                 </div>
             </div>
 
-            <!-- Item 7 -->
+            <!-- Item 7: ข้าวราดกะเพรา -->
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="825311981_1156751680011758_2088149162060019170_n.jpg" alt="ข้าวราดกะเพรา">
+                    <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80" alt="ข้าวราดกะเพรา (หมูกรอบ/กุ้ง)">
                 </div>
                 <div class="card-body">
                     <div class="card-header">
@@ -368,15 +356,15 @@
                     <p class="food-description">กะเพราผัดแห้งหอมกลิ่นกระทะ พริกสดชูรสชาติ เสิร์ฟคู่กับข้าวสวยร้อนๆ</p>
                     <div class="ingredients-box">
                         <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
-                        <p class="ingredients-list">หมูกรอบ/กุ้งสด, ใบกะเพราแท้, พริกขี้หนูสวน, กระเทียมไทย, ซอสกระเพราสูตรพิเศษ</p>
+                        <p class="ingredients-list">หมูกรอบ/กุ้งสด, ใบกะเพราแท้, พริกขี้หนูสวน, กระเทียมไทย, ซอสกะเพราสูตรพิเศษ</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Item 8 -->
+            <!-- Item 8: ยำถั่วพูโบราณ -->
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="825311981_1156751680011758_2088149162060019170_n.jpg" alt="ยำถั่วพูโบราณ">
+                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80" alt="ยำถั่วพูโบราณ">
                 </div>
                 <div class="card-body">
                     <div class="card-header">
@@ -391,10 +379,10 @@
                 </div>
             </div>
 
-            <!-- Item 9 -->
+            <!-- Item 9: ปังเย็นชาไทย -->
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="825311981_2078250716384420_7657824203103966203_n.jpg" alt="ปังเย็นชาไทย / นมสด">
+                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80" alt="ปังเย็นชาไทย / นมสด">
                 </div>
                 <div class="card-body">
                     <div class="card-header">
