@@ -6,7 +6,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ร้านข้าวซอยไทยดั้งเดิม - Lanna Style</title>
-  <!-- Google Fonts -->
+  
+  <!-- Google Fonts: Prompt & Kanit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -15,17 +16,16 @@
     :root {
       --lanna-green-dark: #1b4332;
       --lanna-green-mid: #2d6a4f;
-      --lanna-green-light: #40916c;
+      --lanna-green-light: #52b788;
       --wood-dark: #3d2314;
       --wood-brown: #5c3a21;
-      --wood-light: #8b5a2b;
       --gold-lanna: #d4af37;
       --bg-cream: #fdfbf7;
       --card-bg: #f5efe6;
       --text-dark: #2c221e;
       --text-muted: #6b5e54;
       --white: #ffffff;
-      --shadow: 0 8px 24px rgba(27, 67, 50, 0.12);
+      --shadow: 0 8px 20px rgba(27, 67, 50, 0.12);
     }
 
     * {
@@ -39,15 +39,15 @@
       background-color: var(--bg-cream);
       color: var(--text-dark);
       line-height: 1.6;
-      background-image: radial-gradient(#d4af3715 1px, transparent 1px);
-      background-size: 20px 20px;
+      background-image: radial-gradient(#d4af3718 1px, transparent 1px);
+      background-size: 24px 24px;
     }
 
-    /* Top Banner / Header */
+    /* Header Navbar */
     header {
       background: linear-gradient(135deg, var(--wood-dark) 0%, var(--lanna-green-dark) 100%);
       color: var(--white);
-      border-bottom: 5px solid var(--gold-lanna);
+      border-bottom: 4px solid var(--gold-lanna);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       position: sticky;
       top: 0;
@@ -57,7 +57,7 @@
     .header-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 1rem 2rem;
+      padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -87,21 +87,20 @@
 
     .logo-text h1 {
       font-family: 'Kanit', sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 600;
       color: var(--gold-lanna);
-      letter-spacing: 0.5px;
     }
 
     .logo-text p {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: #e0d5c1;
     }
 
     nav ul {
       display: flex;
       list-style: none;
-      gap: 1.5rem;
+      gap: 1.2rem;
     }
 
     nav a {
@@ -109,7 +108,7 @@
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s;
-      padding: 0.5rem 0.8rem;
+      padding: 0.4rem 0.8rem;
       border-radius: 6px;
     }
 
@@ -118,18 +117,17 @@
       background: rgba(255, 255, 255, 0.08);
     }
 
-    /* Hero Section */
+    /* Hero Banner */
     .hero {
-      background: linear-gradient(rgba(27, 67, 50, 0.85), rgba(61, 35, 20, 0.85)),
+      background: linear-gradient(rgba(27, 67, 50, 0.88), rgba(61, 35, 20, 0.88)),
                   url('https://images.unsplash.com/photo-1541832676-9b763b0239ab?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
       color: var(--white);
       text-align: center;
       padding: 4rem 1.5rem;
-      position: relative;
     }
 
     .hero-content {
-      max-width: 800px;
+      max-width: 850px;
       margin: 0 auto;
     }
 
@@ -137,9 +135,9 @@
       display: inline-block;
       background-color: var(--gold-lanna);
       color: var(--wood-dark);
-      padding: 4px 16px;
+      padding: 4px 18px;
       border-radius: 20px;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 0.9rem;
       margin-bottom: 1rem;
     }
@@ -148,42 +146,44 @@
       font-family: 'Kanit', sans-serif;
       font-size: 2.8rem;
       margin-bottom: 1rem;
-      color: #fff;
+      color: #ffffff;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
 
     .hero p {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: #f0e6d2;
       margin-bottom: 2rem;
+      font-weight: 300;
     }
 
     /* Stats Bar */
     .stats-container {
       display: flex;
       justify-content: center;
-      gap: 2.5rem;
-      background: rgba(255, 255, 255, 0.1);
+      gap: 2rem;
+      background: rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(8px);
       padding: 1.2rem;
       border-radius: 12px;
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      max-width: 650px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      max-width: 700px;
       margin: 0 auto;
     }
 
     .stat-item h3 {
       font-size: 1.8rem;
       color: var(--gold-lanna);
+      font-family: 'Kanit', sans-serif;
     }
 
     .stat-item p {
       font-size: 0.85rem;
       margin-bottom: 0;
-      color: #ddd;
+      color: #e8e0d0;
     }
 
-    /* Container */
+    /* Main Container */
     .main-container {
       max-width: 1200px;
       margin: 3rem auto;
@@ -215,7 +215,7 @@
       background-color: var(--gold-lanna);
     }
 
-    /* Category Filters */
+    /* Category Filter Buttons */
     .filter-buttons {
       display: flex;
       justify-content: center;
@@ -227,7 +227,7 @@
     .filter-btn {
       background-color: var(--white);
       color: var(--wood-brown);
-      border: 1.5px solid var(--wood-light);
+      border: 1.5px solid var(--wood-brown);
       padding: 8px 18px;
       border-radius: 25px;
       font-family: 'Prompt', sans-serif;
@@ -240,10 +240,10 @@
       background-color: var(--lanna-green-dark);
       color: var(--gold-lanna);
       border-color: var(--lanna-green-dark);
-      box-shadow: 0 4px 10px rgba(27, 67, 50, 0.2);
+      box-shadow: 0 4px 12px rgba(27, 67, 50, 0.25);
     }
 
-    /* Menu Grid */
+    /* Menu Cards Grid */
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -259,12 +259,11 @@
       transition: transform 0.3s, box-shadow 0.3s;
       display: flex;
       flex-direction: column;
-      position: relative;
     }
 
     .menu-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgba(27, 67, 50, 0.18);
+      box-shadow: 0 12px 28px rgba(27, 67, 50, 0.2);
     }
 
     .menu-img-wrapper {
@@ -278,11 +277,11 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s;
+      transition: transform 0.5s ease;
     }
 
     .menu-card:hover .menu-img {
-      transform: scale(1.06);
+      transform: scale(1.08);
     }
 
     .badge {
@@ -310,18 +309,19 @@
       justify-content: space-between;
       align-items: flex-start;
       margin-bottom: 0.8rem;
+      gap: 10px;
     }
 
     .menu-title {
       font-family: 'Kanit', sans-serif;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       color: var(--wood-dark);
       font-weight: 600;
     }
 
     .menu-price {
       font-family: 'Kanit', sans-serif;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 700;
       color: var(--lanna-green-dark);
       background-color: #e8f5e9;
@@ -426,7 +426,7 @@
         <div class="logo-icon">ข</div>
         <div class="logo-text">
           <h1>ร้านข้าวซอยไทยดั้งเดิม</h1>
-          <p>รสชาติล้านนาแท้ดั้งเดิม</p>
+          <p>รสชาติเข้มข้นสไตล์ล้านนา</p>
         </div>
       </a>
       <nav>
@@ -443,14 +443,14 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <span class="hero-tag">สัมผัสรสชาติล้านนาเข้มข้น</span>
+      <span class="hero-tag">สัมผัสเสน่ห์อาหารเหนือแท้</span>
       <h2>ข้าวซอยไทยดั้งเดิม & อาหารรสเด็ด</h2>
-      <p>คัดสรรวัตถุดิบชั้นดี ปรุงด้วยความใส่ใจ รสชาติเข้มข้นกลมกล่อม ในบรรยากาศสบายๆ สไตล์ไทยล้านนา</p>
+      <p>คัดสรรวัตถุดิบชั้นดี ปรุงด้วยความใส่ใจ รสชาติเข้มข้นกลมกล่อม ในบรรยากาศสบายๆ ตอบโจทย์ไลฟ์สไตล์นักศึกษาและคนทำงานรุ่นใหม่ (20-35 ปี)</p>
       
       <div class="stats-container">
         <div class="stat-item">
           <h3>100%</h3>
-          <p>วัตถุดิบสดใหม่วันต่อวัน</p>
+          <p>วัตถุดิบสดใหม่ คัดสรรวันต่อวัน</p>
         </div>
         <div class="stat-item">
           <h3>50+</h3>
@@ -458,13 +458,13 @@
         </div>
         <div class="stat-item">
           <h3>4.9 ★</h3>
-          <p>ความพอใจจากลูกค้า</p>
+          <p>ความพึงพอใจจากลูกค้า</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Main Menu Content -->
+  <!-- Main Menu Section -->
   <main class="main-container" id="menu-section">
     <div class="section-title">
       <h2>รายการอาหารแนะนำ & เมนูทั้งหมด</h2>
@@ -473,25 +473,25 @@
     <!-- Category Filters -->
     <div class="filter-buttons">
       <button class="filter-btn active" onclick="filterCategory('all')">ทั้งหมด</button>
-      <button class="filter-btn" onclick="filterCategory('highlight')">เมนูไฮไลท์</button>
-      <button class="filter-btn" onclick="filterCategory('quick')">เมนูจานด่วน</button>
-      <button class="filter-btn" onclick="filterCategory('main')">จานหลัก / ต้มยำ</button>
-      <button class="filter-btn" onclick="filterCategory('spaghetti')">สเต็ก & สปาเก็ตตี้</button>
-      <button class="filter-btn" onclick="filterCategory('appetizer')">ทานเล่น & ยำ</button>
-      <button class="filter-btn" onclick="filterCategory('dessert')">ขนมหวาน</button>
+      <button class="filter-btn" onclick="filterCategory('highlight')">⭐ เมนูไฮไลท์</button>
+      <button class="filter-btn" onclick="filterCategory('quick')">🍚 เมนูจานด่วน</button>
+      <button class="filter-btn" onclick="filterCategory('main')">🍲 จานหลัก/ต้มยำ</button>
+      <button class="filter-btn" onclick="filterCategory('spaghetti')">🥩 สเต๊ก & สปาเก็ตตี้</button>
+      <button class="filter-btn" onclick="filterCategory('appetizer')">🍟 ทานเล่น & ยำ</button>
+      <button class="filter-btn" onclick="filterCategory('dessert')">🍧 ขนมหวาน</button>
     </div>
 
-    <!-- Menu Cards Grid -->
+    <!-- Menu Grid -->
     <div class="menu-grid" id="menu-grid">
       
       <!-- 1. ข้าวซอยไทยดั้งเดิม -->
       <div class="menu-card" data-category="highlight quick">
         <div class="menu-img-wrapper">
-          <span class="badge">ยอดนิยม</span>
+          <span class="badge">Signature</span>
           <img class="menu-img" 
                src="https://images.unsplash.com/photo-1541832676-9b763b0239ab?q=80&w=800&auto=format&fit=crop" 
                alt="ข้าวซอยไทยดั้งเดิม"
-               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop';">
+               onerror="this.src='https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop';">
         </div>
         <div class="menu-content">
           <div class="menu-header">
@@ -509,11 +509,11 @@
       <!-- 2. ข้าวไข่ข้นราดซอตต้มยำกุ้ง -->
       <div class="menu-card" data-category="highlight main quick">
         <div class="menu-img-wrapper">
-          <span class="badge">แนะนำ</span>
+          <span class="badge">ยอดนิยม</span>
           <img class="menu-img" 
                src="https://images.unsplash.com/photo-1525755662778-989d0524087e?q=80&w=800&auto=format&fit=crop" 
                alt="ข้าวไข่ข้นราดซอตต้มยำกุ้ง"
-               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559847844-5315695dadae?q=80&w=800&auto=format&fit=crop';">
+               onerror="this.src='https://images.unsplash.com/photo-1559847844-5315695dadae?q=80&w=800&auto=format&fit=crop';">
         </div>
         <div class="menu-content">
           <div class="menu-header">
@@ -531,11 +531,11 @@
       <!-- 3. กุ้งสาดดด -->
       <div class="menu-card" data-category="highlight main">
         <div class="menu-img-wrapper">
-          <span class="badge">Signature</span>
+          <span class="badge">แนะนำ</span>
           <img class="menu-img" 
                src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?q=80&w=800&auto=format&fit=crop" 
                alt="กุ้งสาดดด"
-               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559847844-5315695dadae?q=80&w=800&auto=format&fit=crop';">
+               onerror="this.src='https://images.unsplash.com/photo-1559847844-5315695dadae?q=80&w=800&auto=format&fit=crop';">
         </div>
         <div class="menu-content">
           <div class="menu-header">
@@ -556,7 +556,7 @@
           <img class="menu-img" 
                src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" 
                alt="ขาหมูเยอรมัน"
-               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?q=80&w=800&auto=format&fit=crop';">
+               onerror="this.src='https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?q=80&w=800&auto=format&fit=crop';">
         </div>
         <div class="menu-content">
           <div class="menu-header">
@@ -577,7 +577,7 @@
           <img class="menu-img" 
                src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?q=80&w=800&auto=format&fit=crop" 
                alt="มาม่าหม้อไฟต้มยำทะเล"
-               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop';">
+               onerror="this.src='https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop';">
         </div>
         <div class="menu-content">
           <div class="menu-header">
@@ -598,7 +598,7 @@
           <img class="menu-img" 
                src="https://images.unsplash.com/photo-1612874742237-6526221588e3?q=80&w=800&auto=format&fit=crop" 
                alt="สปาเก็ตตี้คาโบนาร่า"
-               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=800&auto=format&fit=crop';">
+               onerror="this.src='https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=800&auto=format&fit=crop';">
         </div>
         <div class="menu-content">
           <div class="menu-header">
@@ -613,13 +613,13 @@
         </div>
       </div>
 
-      <!-- 7. ข้าวราดกะเพรา (หมูกรอบ/กุ้ง) -->
+      <!-- 7. ข้าวราดกะเพรา -->
       <div class="menu-card" data-category="quick main">
         <div class="menu-img-wrapper">
           <img class="menu-img" 
                src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=800&auto=format&fit=crop" 
                alt="ข้าวราดกะเพรา"
-               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=800&auto=format&fit=crop';">
+               onerror="this.src='https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=800&auto=format&fit=crop';">
         </div>
         <div class="menu-content">
           <div class="menu-header">
@@ -640,7 +640,7 @@
           <img class="menu-img" 
                src="https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=800&auto=format&fit=crop" 
                alt="ยำถั่วพูโบราณ"
-               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop';">
+               onerror="this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop';">
         </div>
         <div class="menu-content">
           <div class="menu-header">
@@ -661,17 +661,17 @@
           <img class="menu-img" 
                src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?q=80&w=800&auto=format&fit=crop" 
                alt="ปังเย็นชาไทย"
-               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1572490122747-3968b75cc699?q=80&w=800&auto=format&fit=crop';">
+               onerror="this.src='https://images.unsplash.com/photo-1572490122747-3968b75cc699?q=80&w=800&auto=format&fit=crop';">
         </div>
         <div class="menu-content">
           <div class="menu-header">
             <h3 class="menu-title">ปังเย็นชาไทย / นมสด (S/L)</h3>
             <span class="menu-price">189.- / 229.-</span>
           </div>
-          <p class="menu-desc">น้ำแข็งไสเกล็ดหิมะรสชาไทยเข้มข้นและนมสด ราดด้วยนมข้นหวาน นมสด ปังกรอบ และท็อปปิ้งแน่นๆ</p>
+          <p class="menu-desc">น้ำแข็งไสรสชาไทยเข้มข้น หอมหวานมัน ท็อปปิ้งด้วยขนมปังปิ้งนุ่มๆ และนมข้น</p>
           <div class="ingredients-box">
             <div class="ingredients-title">🌿 ส่วนประกอบหลัก</div>
-            <div class="ingredients-list">เกล็ดหิมะชาไทย/นมสด, ขนมปังปิ้งกรอบ, นมข้นหวาน, ชาไทยเข้มข้น, ถั่วแดง, วิปปิ้งครีม</div>
+            <div class="ingredients-list">ชาไทยสกัดสด, นมข้นหวาน, ขนมปังปิ้งเนยสด, ท็อปปิ้งเลือกได้ (โอริโอ้/ฝอยทอง/ไข่มุก)</div>
           </div>
         </div>
       </div>
@@ -684,7 +684,7 @@
     <div class="footer-container">
       <div class="footer-col" id="about">
         <h4>ร้านข้าวซอยไทยดั้งเดิม</h4>
-        <p>บริการอาหารล้านนาและอาหารไทยรสเด็ด คัดสรรวัตถุดิบอย่างพิถีพิถันเพื่อคุณภาพอันดับหนึ่ง</p>
+        <p>บริการอาหารล้านนาและอาหารไทยรสเด็ด บรรยากาศสบายๆ เหมาะสำหรับนักศึกษาและคนทำงานรุ่นใหม่</p>
       </div>
       <div class="footer-col">
         <h4>เวลาทำการ</h4>
